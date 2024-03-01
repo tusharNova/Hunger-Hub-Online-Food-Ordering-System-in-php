@@ -1,0 +1,26 @@
+
+:root{
+  --offcanvas-width: 270px;
+  --topNavbarHeight:56px
+}
+
+#offcanvasExample{
+    width: var(--offcanvas-width);
+}
+
+
+@media (min-width:992px){
+  body{
+    overflow: auto !important;
+  }
+  .offcanvas-backdrop::before{
+    display: none;
+  }
+
+  #offcanvasExample{  
+    transform: none;
+    visibility: visible !important;
+    top:var(--topNavbarHeight);
+    height: calc( 100% - var(--topNavbarHeight));
+  }
+}
