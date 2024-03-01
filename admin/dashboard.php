@@ -135,13 +135,13 @@
               <div class="">
                 <ul class="navbar-nav ps-3">
                   <li>
-                    <a href="" class="nav-link px-3"><span>All Restaurants</span></a>
+                    <a href="all_restaurant.php" class="nav-link px-3"><span>All Restaurants</span></a>
                   </li>
                   <li>
-                    <a href="" class="nav-link px-3"><span>Add Category</span></a>
+                    <a href="add_category.php" class="nav-link px-3"><span>Add Category</span></a>
                   </li>
                   <li>
-                    <a href="" class="nav-link px-3"><span>Add Restaurant</span></a>
+                    <a href="add_restaurant.php" class="nav-link px-3"><span>Add Restaurant</span></a>
                   </li>
                 </ul>
               </div>
