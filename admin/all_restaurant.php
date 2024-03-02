@@ -1,4 +1,24 @@
-<?php
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>All  Restaurant</title>
+</head>
+<style>  @media (min-width:992px) {
+   .leftside{
+    margin-left: 270px;
+   }
+  }
+</style>
 
-echo"all_restaurant.php";
-?>
+<body>
+<?php  include_once('navbar.php') ; ?>
+
+  <div class="leftside p-2">
+    <h2>
+    All  Restaurant
+    </h2>
+  </div>
+</body>
+</html>
