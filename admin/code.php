@@ -1,14 +1,31 @@
 <?php
 
 include("../connection/connect.php");
+session_start();
+
 
 $cmd = $_POST["cmd"];
-if($cmd === "adminlogin"){
-    $username = $_POST["username"];
-    $password = $_POST["password"];
 
-    echo "ok";
-    header("refresh:1;url=dashboard.php");
+# for admin login
+if($cmd === "adminlogin"){
+    $username = $_POST['user'];
+    $password = $_POST['pswd'];
+   
     
+    $sql = "SELECT * FROM `admin` where username='$username' AND password='$password'";
+    $result = mysqli_query($conn, $sql);
+    $cnt = mysqli_num_rows($result);
+    $row = mysqli_fetch_array($result);
+    if (is_array($row)){
+        $_SESSION["adminname"] = $row['username'];
+        echo "$cnt";
+    }
+    else{
+        echo "Invalid Username or Password";
+    }
 }
+# for change password
+if($cmd ==="changeadminpass"){
+    echo"ok";
+} 
 

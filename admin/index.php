@@ -1,3 +1,17 @@
+<?php
+include("../connection/connect.php");
+error_reporting(0);
+session_start();
+if( $_SESSION["adminname"])
+{
+	header('location:dashboard.php');
+}
+else{
+    header('location:index.php');
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,6 +22,9 @@
     <link rel="stylesheet" href="../css/bootstrap.min.css">
     <script src="../js/bootstrap.bundle.min.js"></script>
     <script src="../js/jquery.min.js"></script>
+    <!-- <script src="js/sweetalert.min.js"></script> -->
+    <script src="../js/sweetalert.min.js"></script>
+    <script src="../js/sweetalert2@11.js"></script>
     <style>
         body {
             background-color: #f8f9fa;
@@ -39,7 +56,8 @@
                                 <input type="password" class="form-control" id="password" placeholder="Password">
                             </div>
                             <div class="align-items-center">
-                                <button type="button" id="btnsubmit" class="btn btn-dark mt-2 al" onclick="myFunction()">Login</button>
+                                <button type="button" id="btnsubmit" class="btn btn-dark mt-2 al"
+                                    onclick="myFunction()">Login</button>
                             </div>
 
                         </div>
@@ -49,25 +67,28 @@
         </div>
     </div>
 </body>
+
 <script>
     function myFunction() {
         $.post("code.php", {
-                cmd: 'adminlogin',
-                username : "sdf",
-                password : "sdfd",
-                
-            },
-            function(data,status) {
-
-                // alert("Data: " + data + "\nStatus: " + status);
-                if (data == "ok"){
-                   window.location.href = "dashboard.php"
+            cmd: 'adminlogin',
+            user: $("#username").val(),
+            pswd: $("#password").val(),
+        },
+            function (data, status) {
+                ans = "Data: " + data + "\nStatus: " + status;
+                if (data == 1) {
+                    window.location.replace("dashboard.php")
                 }
-                else{
-                    window.location.href = "#"
+                else {
+                    Swal.fire({
+                        text: data,
+                        icon: "error"
+                    });
                 }
             });
     }
 </script>
+
 
 </html>

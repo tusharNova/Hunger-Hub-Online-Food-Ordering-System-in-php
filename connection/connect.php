@@ -3,7 +3,7 @@
 $servername = "localhost"; //server
 $username = "root"; //username
 $password = ""; //password
-$dbname = "foodhub";  //database
+$dbname = "hungerhub";  //database
 
 
 $conn = mysqli_connect($servername, $username, $password, $dbname); // connecting 

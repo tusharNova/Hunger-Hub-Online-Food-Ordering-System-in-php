@@ -1,3 +1,13 @@
+<?php
+include("../connection/connect.php");
+error_reporting(0);
+session_start();
+if(empty( $_SESSION["adminname"]))
+{
+	header('location:index.php');
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

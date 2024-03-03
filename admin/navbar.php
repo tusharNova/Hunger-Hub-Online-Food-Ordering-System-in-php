@@ -1,3 +1,12 @@
+<?php
+include("../connection/connect.php");
+error_reporting(0);
+session_start();
+if(empty( $_SESSION["adminname"]))
+{
+	header('location:index.php');
+}
+?>
 
 
 <!DOCTYPE html>
@@ -75,14 +84,16 @@
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
               aria-expanded="false">
               <i class="fa fa-user-circle-o" aria-hidden="true"></i>
+              <span class="text-primary"><?php echo $_SESSION["adminname"]?></span>
             </a>
             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <li><a class="dropdown-item" href="#">Edit profile</a></li>
-              <li><a class="dropdown-item" href="#">Change Password</a></li>
+              <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                  style="cursor: pointer;">Change Password</a></li>
               <li>
                 <hr class="dropdown-divider">
               </li>
-              <li><a class="dropdown-item" href="#">Logout</a></li>
+              <li><a class="dropdown-item" href="#" id="btnlogout">Logout</a></li>
             </ul>
           </li>
         </ul>
@@ -188,12 +199,55 @@
     <div style="padding-top: 10px;" class="text-muted fw-bold mb-3">
       <marquee onMouseOver="this.stop()" onMouseOut="this.start()"> This website is created by tushar m.</marquee>
     </div>
-   
+  
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Change Password</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="mb-3">
+              <label for="password1" class="form-label">Current Password</label>
+              <input type="text" class="form-control" id="password1" placeholder="Current Password">
+            </div>
+            <div class="mb-3">
+              <label for="password2" class="form-label">New Password</label>
+              <input type="password" class="form-control" id="password2" placeholder="New Password">
+            </div>
+
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary" id="btnsavepass">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </main>
   <!-- Dashboard -->
 
   <!-- Dashboard -->
-
 </body>
+
+<script>
+  $("#btnsavepass").click(function () {
+    var pass1 = $("#password1").val();
+    var pass2 = $("#password2").val();
+    console.log(pass1);
+    if (pass1 != "" && pass2 != "") {
+      console.log("changet it");
+      alert("changet it");
+    }
+    else {
+      alert("add password");
+    }
+  });
+
+
+</script>
 
 </html>
