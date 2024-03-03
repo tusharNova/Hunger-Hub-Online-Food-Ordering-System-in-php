@@ -32,8 +32,37 @@
         <div class="container  border  border-3 p-2 mt-5">
             Listed Categories
             <div>
-                lorem1000
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores optio omnis iusto ex? Ex vitae deleniti, est, unde harum asperiores optio numquam quibusdam consequatur doloremque, id modi neque. Magni, molestias.
             </div>
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">First</th>
+                    <th scope="col">Last</th>
+                    <th scope="col">Handle</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">1</th>
+                    <td>Mark</td>
+                    <td>Otto</td>
+                    <td>@mdo</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">2</th>
+                    <td>Jacob</td>
+                    <td>Thornton</td>
+                    <td>@fat</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">3</th>
+                    <td colspan="2">Larry the Bird</td>
+                    <td>@twitter</td>
+                  </tr>
+                </tbody>
+              </table>
         </div>
 
        
