@@ -6,9 +6,6 @@ if( $_SESSION["adminname"])
 {
 	header('location:dashboard.php');
 }
-else{
-    header('location:index.php');
-}
 ?>
 
 
