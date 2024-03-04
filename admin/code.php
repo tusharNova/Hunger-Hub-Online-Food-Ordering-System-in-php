@@ -29,3 +29,7 @@ if($cmd ==="changeadminpass"){
     echo"ok";
 } 
 
+# for add Category 
+if($cmd === "addcategory"){
+    echo "sdfsdf";
+}
