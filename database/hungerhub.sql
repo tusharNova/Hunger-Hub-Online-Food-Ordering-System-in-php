@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 03, 2024 at 10:32 PM
+-- Generation Time: Mar 04, 2024 at 08:52 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.1.12
 
@@ -53,6 +53,15 @@ CREATE TABLE `res_category` (
   `c_name` text NOT NULL,
   `date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `res_category`
+--
+
+INSERT INTO `res_category` (`c_id`, `c_name`, `date`) VALUES
+(1, 'South indian', '2024-03-04 19:45:19'),
+(2, 'Maharashtrian', '2024-03-04 19:46:38'),
+(3, 'gujarati', '2024-03-04 19:46:52');
 
 -- --------------------------------------------------------
 
@@ -116,7 +125,7 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `res_category`
 --
 ALTER TABLE `res_category`
-  MODIFY `c_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `c_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `user`
