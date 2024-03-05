@@ -63,19 +63,25 @@
                         <td>' . $rows['c_name'] . '</td>
                         <td>' . $rows['date'] . '</td>
                         
-                           <td><a class="btn btn-danger  btn-xs m-b-10" id="btndelete"><i class="fa fa-trash-o" style="font-size:16px" ></i></a> 
+                           <td><a class="btn btn-danger  btn-xs m-b-10" onclick="deleteitem()" ><i class="fa fa-trash-o" style="font-size:16px" ></i></a> 
                            <a  class="btn btn-info  btn-sm m-b-10 m-l-5" id="btnedit"><i class="fa fa-edit"></i></a>
                           </td></tr>';
               }
             }
             ?>
           </tbody>
+
         </table>
       </div>
     </div>
   </div>
 </body>
 <script>
+  function deleteitem(id) {
+    alert("item delete"+id)
+    }
+
+
   function addcategory() {
     if ($("#txtcategory").val() == "") {
       alert("invalid Enter")
@@ -83,7 +89,7 @@
       $.post("code.php", {
         cmd: "addcategory",
         item: $("#txtcategory").val(),
-      }, function(data, status) {
+      }, function (data, status) {
         if (data == "1") {
           Swal.fire({
             text: "Category Added",
@@ -101,10 +107,9 @@
     }
   }
 
-  $("#btndelete").click(function () { 
+  $("#btndelete").click(function () {
     alert("delete data");
-   })
-
+  })
 </script>
 
 </html>
