@@ -61,3 +61,20 @@ if ($cmd === "listCategory") {
     }
     echo json_encode($arr);
 }
+
+// delete Category 
+
+if($cmd === "deleteCategory"){
+    $id = $_POST['id'];
+    
+    $sql = "DELETE FROM `res_category` where c_id= $id";
+    echo $sql;
+    $run = mysqli_query($conn , $sql);
+
+    if($run){
+        echo "1";
+    }
+    else{
+        echo "0";
+    }
+}
