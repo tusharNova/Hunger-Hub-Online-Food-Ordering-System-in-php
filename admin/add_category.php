@@ -63,8 +63,8 @@
                         <td>' . $rows['c_name'] . '</td>
                         <td>' . $rows['date'] . '</td>
                         
-                           <td><a class="btn btn-danger  btn-xs m-b-10" onclick="deleteitem()" ><i class="fa fa-trash-o" style="font-size:16px" ></i></a> 
-                           <a  class="btn btn-info  btn-sm m-b-10 m-l-5" id="btnedit"><i class="fa fa-edit"></i></a>
+                           <td><a class="btn btn-danger  btn-xs m-b-10" onclick="deleteitem(' . $rows['c_id'] . ')" ><i class="fa fa-trash-o" style="font-size:16px" ></i></a> 
+                           <a  class="btn btn-info  btn-sm m-b-10 m-l-5"  data-bs-toggle="modal" data-bs-target="#editCatModel" ><i class="fa fa-edit"></i></a>
                           </td></tr>';
               }
             }
@@ -73,15 +73,39 @@
 
         </table>
       </div>
+      <!-- Button to Open the Modal -->
+      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editCatModel">
+        Open modal
+      </button>
+
+      <!-- The Modal -->
+      <div class="modal fade" id="editCatModel">
+        <div class="modal-dialog">
+          <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+              <h4 class="modal-title">Modal Heading</h4>
+              <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+              Modal body..
+            </div>
+
+            <!-- Modal footer -->
+            <div class="modal-footer">
+              <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+            </div>
+
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </body>
 <script>
-  function deleteitem(id) {
-    alert("item delete"+id)
-    }
-
-
   function addcategory() {
     if ($("#txtcategory").val() == "") {
       alert("invalid Enter")
@@ -89,7 +113,7 @@
       $.post("code.php", {
         cmd: "addcategory",
         item: $("#txtcategory").val(),
-      }, function (data, status) {
+      }, function(data, status) {
         if (data == "1") {
           Swal.fire({
             text: "Category Added",
@@ -103,13 +127,21 @@
         }
       });
       location.reload();
-
     }
   }
 
-  $("#btndelete").click(function () {
-    alert("delete data");
-  })
+  function deleteitem(id) {
+    debugger
+
+    $.post("code.php", {
+        cmd: 'deleteCategory',
+        id: id,
+      },
+      function(data, status) {
+        alert(data)
+      });
+    location.reload();
+  }
 </script>
 
 </html>
