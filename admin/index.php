@@ -8,7 +8,6 @@ if( $_SESSION["adminname"])
 }
 ?>
 
-
 <!DOCTYPE html>
 <html lang="en">
 
