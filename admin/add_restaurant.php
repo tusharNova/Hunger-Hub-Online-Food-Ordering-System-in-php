@@ -100,7 +100,7 @@
         <div class="col-md-12 mb-3 mt-3">
           <div class="form-group">
             <label class="control-label">Select Category</label>
-            <select name="c_name" class="form-control custom-select" data-placeholder="Choose a Category" tabindex="1">
+            <select id="c_name" class="form-control custom-select" data-placeholder="Choose a Category" tabindex="1">
               <option>--Select Category--</option>
               <?php $ssql = "select * from res_category";
               $res = mysqli_query($conn, $ssql);
@@ -119,18 +119,37 @@
         <div class="col-md-12 ">
           <div class="form-group">
 
-            <textarea name="address" type="text" style="height:100px;" class="form-control"></textarea>
+            <textarea id="txtAddress" type="text" style="height:100px;" class="form-control"></textarea>
           </div>
         </div>
       </div>
       <div class="form-actions my-3">
-        <input type="button" name="btnSubmit" class="btn btn-primary" value="Save">
+        <input type="button" id="btnSubmit" class="btn btn-primary" value="Save">
         <a href="add_restaurant.php" class="btn btn-dark">Cancel</a>
       </div>
-
-
     </div>
     <?php include_once("footer.php") ?>
 </body>
 
+<script>
+
+$("#btnSubmit").click(function() {
+ 
+  
+  var txtResname = $("#txtResname").val();
+  var txtBussiness = $("#txtBussiness").val();
+  var txtPhone = $("#txtPhone").val();
+  var txtWebUrl = $("#txtWebUrl").val();
+  var o_hr = $("#o_hr").val();
+  var c_hr = $("#c_hr").val();
+  var o_days = $("#o_days").val()
+  var setImg = $("#setImg").val();
+  var txtAddress = $("#txtAddress").val();
+  var c_name = $("#c_name").val();
+
+  alert(c_name)
+
+})
+
+</script>
 </html>
