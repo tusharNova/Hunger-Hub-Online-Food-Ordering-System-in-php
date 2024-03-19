@@ -5,6 +5,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Add Restaurant</title>
+  <script src="../js/sweetalert.min.js"></script>
+  <script src="../js/sweetalert2@11.js"></script>
+
+  <link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.22.3/dist/bootstrap-table.min.css">
+  <script src="https://unpkg.com/bootstrap-table@1.22.3/dist/bootstrap-table.min.js"></script>
+  <script src="../js/jquery-3.5.1.js"></script>
+  <script src="../js/jquery.min.js"></script>
+</head>
 </head>
 <style>
   @media (min-width:992px) {
@@ -92,7 +100,7 @@
         <div class="mb-3 mt-3  col-md-6">
           <div class="form-group">
             <label class="control-label">Image</label>
-            <input type="file" name="file" id="setImg" class="form-control form-control-danger" placeholder="12n">
+            <input type="file" name="file" id="file" class="form-control form-control-danger" placeholder="12n">
           </div>
         </div>
       </div>
@@ -132,24 +140,36 @@
 </body>
 
 <script>
+  $(document).ready(function(){
+    var txtResname = $("#txtResname").val();
+    var txtBussiness = $("#txtBussiness").val();
+    var txtPhone = $("#txtPhone").val();
+    var txtWebUrl = $("#txtWebUrl").val();
+    var o_hr = $("#o_hr").val();
+    var c_hr = $("#c_hr").val();
+    var o_days = $("#o_days").val()
+    // var image = $("#setImg").val();
+    var txtAddress = $("#txtAddress").val();
+    var c_name = $("#c_name").val();
 
-$("#btnSubmit").click(function() {
- 
-  
-  var txtResname = $("#txtResname").val();
-  var txtBussiness = $("#txtBussiness").val();
-  var txtPhone = $("#txtPhone").val();
-  var txtWebUrl = $("#txtWebUrl").val();
-  var o_hr = $("#o_hr").val();
-  var c_hr = $("#c_hr").val();
-  var o_days = $("#o_days").val()
-  var setImg = $("#setImg").val();
-  var txtAddress = $("#txtAddress").val();
-  var c_name = $("#c_name").val();
+    $("#btnSubmit").click(function(){
+        var fd= new FormData()
+        var files = $("#file")[0].files[0];
+        fd.append('file',files);
 
-  alert(c_name)
+        $.post("code.php", {
+          cmd: "addcategory",
+          file: fd,
+        }, function(data, status) {
+          alert("Data: " + data)
+        });
 
-})
+
+    })
+
+
+  })
 
 </script>
+
 </html>
