@@ -78,3 +78,11 @@ if($cmd === "deleteCategory"){
         echo "0";
     }
 }
+// add restaurant 
+
+if($cmd === "addRestaurant"){
+    // echo "add_Restaurant";
+    $filename = $_FILES['file']['name'];
+
+    echo "$filename";
+}
