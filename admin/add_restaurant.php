@@ -32,7 +32,7 @@
       <div class="row">
         <div class="mb-3 mt-3 col-md-6">
           <label for="" class="form-label">Restaurant Name</label>
-          <input type="text" class="form-control" id="txtResname">
+          <input type="text" name="res_name" class="form-control" id="txtResname">
         </div>
         <div class="mb-3 mt-3 col-md-6">
           <label for="txtBussiness" class="form-label">Bussiness E-mail</label>
@@ -140,36 +140,6 @@
 </body>
 
 <script>
-  $(document).ready(function(){
-    var txtResname = $("#txtResname").val();
-    var txtBussiness = $("#txtBussiness").val();
-    var txtPhone = $("#txtPhone").val();
-    var txtWebUrl = $("#txtWebUrl").val();
-    var o_hr = $("#o_hr").val();
-    var c_hr = $("#c_hr").val();
-    var o_days = $("#o_days").val()
-    // var image = $("#setImg").val();
-    var txtAddress = $("#txtAddress").val();
-    var c_name = $("#c_name").val();
-
-    $("#btnSubmit").click(function(){
-        var fd= new FormData()
-        var files = $("#file")[0].files[0];
-        fd.append('file',files);
-
-        $.post("code.php", {
-          cmd: "addcategory",
-          file: fd,
-        }, function(data, status) {
-          alert("Data: " + data)
-        });
-
-
-    })
-
-
-  })
-
 </script>
 
 </html>
