@@ -4,23 +4,23 @@
 include("../connection/connect.php");
 error_reporting(0);
 session_start();
-if (isset($_POST['submit'])) {
-  $fname = $_FILES['file']['name'];
-        $temp = $_FILES['file']['tmp_name'];
-        $fsize = $_FILES['file']['size'];
-        $extension = explode('.', $fname);
-        $extension = strtolower(end($extension));
-        $fnew = uniqid() . '.' . $extension;
+// if (isset($_POST['submit'])) {
+//   $fname = $_FILES['file']['name'];
+//         $temp = $_FILES['file']['tmp_name'];
+//         $fsize = $_FILES['file']['size'];
+//         $extension = explode('.', $fname);
+//         $extension = strtolower(end($extension));
+//         $fnew = uniqid() . '.' . $extension;
 
-        $store = "imgRes/" . basename($fnew);
-        $res_name = $_POST['res_name'];
+//         $store = "imgRes/" . basename($fnew);
+//         $res_name = $_POST['res_name'];
 
-        $sql = "INSERT INTO restaurant(c_id,title,email,phone,url,o_hr,c_hr,o_days,address,image) VALUE('" . $_POST['c_name'] . "','" . $res_name . "','" . $_POST['email'] . "','" . $_POST['phone'] . "','" . $_POST['url'] . "','" . $_POST['o_hr'] . "','" . $_POST['c_hr'] . "','" . $_POST['o_days'] . "','" . $_POST['address'] . "','" . $fnew . "')";  // store the submited data ino the database :images
-        echo $sql;
-        // mysqli_query($db, $sql);
-        move_uploaded_file($temp, $store);
+//         $sql = "INSERT INTO restaurant(c_id,title,email,phone,url,o_hr,c_hr,o_days,address,image) VALUE('" . $_POST['c_name'] . "','" . $res_name . "','" . $_POST['email'] . "','" . $_POST['phone'] . "','" . $_POST['url'] . "','" . $_POST['o_hr'] . "','" . $_POST['c_hr'] . "','" . $_POST['o_days'] . "','" . $_POST['address'] . "','" . $fnew . "')";  // store the submited data ino the database :images
+//         echo $sql;
+//         // mysqli_query($db, $sql);
+//         move_uploaded_file($temp, $store);
 
-}
+// }
 
 
 ?>
