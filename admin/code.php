@@ -82,7 +82,14 @@ if($cmd === "deleteCategory"){
 
 if($cmd === "addRestaurant"){
     // echo "add_Restaurant";
-    $filename = $_FILES['file']['name'];
+    $Myname=$_POST["Myname"];
+    if ( 0 < $_FILES['file']['error'] ) {
+        echo 'Error: ' . $_FILES['file']['error'] . '<br>';
+    }
+    else {
+        move_uploaded_file($_FILES['file']['tmp_name'], 'imgRes/'.$_FILES['file']['tmp_name']);
+       // move_uploaded_file($_FILES['file']['tmp_name'], 'imgRes/'.$Myname. $_FILES['file']['name']);
+    }
+    echo "hi tushar my name is $Myname";
 
-    echo "$filename";
 }
