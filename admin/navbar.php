@@ -201,7 +201,7 @@ if(empty( $_SESSION["adminname"]))
 
   <main class="mt-5 p-3">
     <div style="padding-top: 10px;" class="text-muted fw-bold mb-3">
-      <marquee onMouseOver="this.stop()" onMouseOut="this.start()"> This website is created by tushar m.</marquee>
+      <marquee onMouseOver="this.stop()" onMouseOut="this.start()"> This website is created by Tushar m. & Bharti p.</marquee>
     </div>
   
     <!-- Modal -->
