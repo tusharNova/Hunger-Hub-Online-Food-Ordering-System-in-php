@@ -164,8 +164,7 @@ session_start();
     var file_data = $('#file').prop('files')[0];
     var c_name = $('#c_name').val();
     var txtAddress = $('#txtAddress').val();
-    var data = txtResname + " " + txtBussinessEmail + " " + txtPhone + " " + txtWebUrl + " " + o_hr + " " + c_hr + " " + o_days + " " + c_name + " " + txtAddress;
-    // alert(data)
+   
     console.log(data)
     var form_data = new FormData();
     form_data.append('cmd', "addRestaurant");
