@@ -87,11 +87,11 @@ if ($cmd === "addRestaurant") {
     $o_hr = $_POST['o_hr'];
     $c_hr = $_POST['c_hr'];
     $o_days = $_POST['o_days'];
-    // $fileName = $_FILES['file']['name'];
+    $fileName = $_FILES['file']['name'];
     // $tempName = $_FILES['file']['tmp_name'];
     $c_name = $_POST['c_name'];
     $txtAddress = $_POST['txtAddress'];
-    echo $_FILES['file']['name'];
+    //echo $_FILES['file']['name'];
 
 
 
@@ -99,13 +99,18 @@ if ($cmd === "addRestaurant") {
         echo 'Error: ' . $_FILES['file']['error'] . '<br>';
     } else {
         move_uploaded_file($_FILES['file']['tmp_name'], 'imgRes/' . $_FILES['file']['name']);
-        $sql = "INSERT INTO `restaurant`(`r_id`, `c_id`, `title`, `email`, `phone`, `url`, `o_hr`, `c_hr`, `o_days`, `address`, `image`, `date`) VALUES (null,'$c_name','$txtResname','$txtBussinessEmail','$txtPhone','$txtWebUrl','$o_hr ',' $c_hr','$o_days',' $txtAddress','xxxx',CURRENT_TIMESTAMP)";
-        $run = mysqli_query($conn, $sql);
+        $sql = "INSERT INTO `restaurant`(`r_id`, `c_id`, `title`, `email`, `phone`, `url`, `o_hr`, `c_hr`, `o_days`, `address`, `image`, `date`) VALUES (null,'$c_name','$txtResname','$txtBussinessEmail','$txtPhone','$txtWebUrl','$o_hr ',' $c_hr','$o_days',' $txtAddress','$fileName',CURRENT_DATE)";
+        // echo $sql;
 
-        if ($run) {
-            echo "1";
-        } else {
-            echo "0";
+        try {
+            $run = mysqli_query($conn, $sql);
+            if ($run) {
+                echo "1";
+            } else {
+                echo "0";
+            }
+        } catch (\Throwable $th) {
+            throw $th;
         }
     }
 }
