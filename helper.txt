@@ -1,3 +1,7 @@
 category list 
 Maharashtrian , north indian , south indian , rajasthani  , gujarati , delhi special , lakhani, punjabi--
 ---------------------
+
+tushar bharti@gmail.com 902212654 https://pin.it/6eSeOHXU4 6am 8pm --Select your Days-- xxxxxxxxx
+
+INSERT INTO `restaurant`(`r_id`, `c_id`, `title`, `email`, `phone`, `url`, `o_hr`, `c_hr`, `o_days`, `address`, `image`, `date`) VALUES ('[value-1]','[value-2]','[value-3]','[value-4]','[value-5]','[value-6]','[value-7]','[value-8]','[value-9]','[value-10]','[value-11]','[value-12]')

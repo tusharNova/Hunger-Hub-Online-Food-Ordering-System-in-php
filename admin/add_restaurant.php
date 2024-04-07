@@ -65,8 +65,8 @@ session_start();
           <input type="text" name="res_name" class="form-control" id="txtResname">
         </div>
         <div class="mb-3 mt-3 col-md-6">
-          <label for="txtBussiness" class="form-label">Bussiness E-mail</label>
-          <input type="text" class="form-control" id="txtBussiness" name="email">
+          <label for="txtBussinessEmail" class="form-label">Bussiness E-mail</label>
+          <input type="text" class="form-control" id="txtBussinessEmail" name="email">
         </div>
       </div>
       <div class="row">
@@ -171,41 +171,61 @@ session_start();
 </body>
 
 <script>
- 
   $("#btnSubmit").click(function() {
-    var file_data = $('#file').prop('files')[0];
+
     var txtResname = $('#txtResname').val();
-    var txtBussiness = $('#txtBussiness').val();
+    var txtBussinessEmail = $('#txtBussinessEmail').val();
     var txtPhone = $('#txtPhone').val();
     var txtWebUrl = $('#txtWebUrl').val();
     var o_hr = $('#o_hr').val();
     var c_hr = $('#c_hr').val();
     var o_days = $('#o_days').val();
+    var file_data = $('#file').prop('files')[0];
     var c_name = $('#c_name').val();
-    var  txtAddress= $('#txtAddress').val();
+    var txtAddress = $('#txtAddress').val();
+    var data = txtResname + " " + txtBussinessEmail + " " + txtPhone + " " + txtWebUrl + " " + o_hr + " " + c_hr + " " + o_days + " " + c_name + " " + txtAddress;
+    // alert(data)
+    console.log(data)
+    var form_data = new FormData();
+    form_data.append('cmd', "addRestaurant");
+    form_data.append('txtResname', txtResname);
+    form_data.append('txtBussinessEmail', txtBussinessEmail);
+    form_data.append('txtPhone', txtPhone);
+    form_data.append('txtWebUrl', txtWebUrl);
+    form_data.append('o_hr', o_hr);
+    form_data.append('o_days', o_days);
+    form_data.append('file', file_data);
+    form_data.append('c_hr', c_hr);
+    form_data.append('c_name', c_name);
+    form_data.append('txtAddress', txtAddress);
 
-    alert(txtAddress+" "+txtBussiness+" "+txtPhone+" "+txtWebUrl+" "+o_hr+" "+c_hr+" "+o_days+" "+txtAddress)
 
-    // var form_data = new FormData();
-    // form_data.append('cmd', "addRestaurant");
+    $.ajax({
+      url: 'code.php',
+      dataType: 'text',
+      cache: false,
+      contentType: false,
+      processData: false,
+      data: form_data,
+      type: 'post',
+      success: function(data) {
+        console.log(data);
+        alert(data);
+        if (data == "1") {
+          Swal.fire({
+            text: "Category Added",
+            icon: "success"
+          });
+        } else {
+          Swal.fire({
+            text: "Failed to add",
+            icon: "error"
+          });
+        }
 
-    // form_data.append('file', file_data);
-    // form_data.append('Myname', "tushar");                      
-    // $.ajax({
-    //   url: 'code.php',  
-    //   dataType: 'text', 
-    //   cache: false,
-    //   contentType: false,
-    //   processData: false,
-    //   data: form_data,
-    //   type: 'post',
-    //   success: function(data) {
-
-    //     alert(data); 
-    //   }
-    // });
+      }
+    });
   });
-
 </script>
 
 </html>
