@@ -91,8 +91,6 @@ if ($cmd === "addRestaurant") {
     // $tempName = $_FILES['file']['tmp_name'];
     $c_name = $_POST['c_name'];
     $txtAddress = $_POST['txtAddress'];
-    //echo $_FILES['file']['name'];
-
 
 
     if (0 < $_FILES['file']['error']) {
@@ -112,5 +110,27 @@ if ($cmd === "addRestaurant") {
         } catch (\Throwable $th) {
             throw $th;
         }
+    }
+}
+
+//  Add menus 
+if ($cmd === "AddMenus") {
+
+    $title = $_POST['txtDishName'];
+    $slogan = $_POST['txtDescription'];
+    $price = $_POST['txtPrice'];
+    $txtres_name = $_POST['txtres_name'];
+    $fileName = $_FILES['file']['name'];
+    $sql = "INSERT INTO `dishes`(`d_id`, `r_id`, `title`, `slogan`, `price`, `img`) VALUES (null,'$txtres_name','$title','$slogan','$price','$fileName')";
+    try {
+        $run = mysqli_query($conn, $sql);
+        move_uploaded_file($_FILES['file']['tmp_name'], 'imgRes/' . $_FILES['file']['name']);
+        if ($run) {
+            echo "1";
+        } else {
+            echo "0";
+        }
+    } catch (\Throwable $th) {
+        throw $th;
     }
 }
