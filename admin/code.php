@@ -64,32 +64,48 @@ if ($cmd === "listCategory") {
 
 // delete Category 
 
-if($cmd === "deleteCategory"){
+if ($cmd === "deleteCategory") {
     $id = $_POST['id'];
-    
+
     $sql = "DELETE FROM `res_category` where c_id= $id";
     echo $sql;
-    $run = mysqli_query($conn , $sql);
+    $run = mysqli_query($conn, $sql);
 
-    if($run){
+    if ($run) {
         echo "1";
-    }
-    else{
+    } else {
         echo "0";
     }
 }
 // add restaurant 
 
-if($cmd === "addRestaurant"){
-    // echo "add_Restaurant";
-    $Myname=$_POST["Myname"];
-    if ( 0 < $_FILES['file']['error'] ) {
-        echo 'Error: ' . $_FILES['file']['error'] . '<br>';
-    }
-    else {
-        move_uploaded_file($_FILES['file']['tmp_name'], 'imgRes/'.$_FILES['file']['tmp_name']);
-       // move_uploaded_file($_FILES['file']['tmp_name'], 'imgRes/'.$Myname. $_FILES['file']['name']);
-    }
-    echo "hi tushar my name is $Myname";
+if ($cmd === "addRestaurant") {
+    $txtResname = $_POST['txtResname'];
+    $txtBussinessEmail = $_POST['txtBussinessEmail'];
+    $txtPhone = $_POST['txtPhone'];
+    $txtWebUrl = $_POST['txtWebUrl'];
+    $o_hr = $_POST['o_hr'];
+    $c_hr = $_POST['c_hr'];
+    $o_days = $_POST['o_days'];
+    // $fileName = $_FILES['file']['name'];
+    // $tempName = $_FILES['file']['tmp_name'];
+    $c_name = $_POST['c_name'];
+    $txtAddress = $_POST['txtAddress'];
+    echo $_FILES['file']['name'];
 
+
+
+    if (0 < $_FILES['file']['error']) {
+        echo 'Error: ' . $_FILES['file']['error'] . '<br>';
+    } else {
+        move_uploaded_file($_FILES['file']['tmp_name'], 'imgRes/' . $_FILES['file']['name']);
+        $sql = "INSERT INTO `restaurant`(`r_id`, `c_id`, `title`, `email`, `phone`, `url`, `o_hr`, `c_hr`, `o_days`, `address`, `image`, `date`) VALUES (null,'$c_name','$txtResname','$txtBussinessEmail','$txtPhone','$txtWebUrl','$o_hr ',' $c_hr','$o_days',' $txtAddress','xxxx',CURRENT_TIMESTAMP)";
+        $run = mysqli_query($conn, $sql);
+
+        if ($run) {
+            echo "1";
+        } else {
+            echo "0";
+        }
+    }
 }
