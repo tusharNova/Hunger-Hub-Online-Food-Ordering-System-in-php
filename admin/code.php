@@ -124,7 +124,7 @@ if ($cmd === "AddMenus") {
     $sql = "INSERT INTO `dishes`(`d_id`, `r_id`, `title`, `slogan`, `price`, `img`) VALUES (null,'$txtres_name','$title','$slogan','$price','$fileName')";
     try {
         $run = mysqli_query($conn, $sql);
-        move_uploaded_file($_FILES['file']['tmp_name'], 'imgRes/' . $_FILES['file']['name']);
+        move_uploaded_file($_FILES['file']['tmp_name'], 'images/menus/' . $_FILES['file']['name']);
         if ($run) {
             echo "1";
         } else {
