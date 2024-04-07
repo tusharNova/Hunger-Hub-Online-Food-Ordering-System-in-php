@@ -178,8 +178,6 @@ session_start();
     form_data.append('c_hr', c_hr);
     form_data.append('c_name', c_name);
     form_data.append('txtAddress', txtAddress);
-
-
     $.ajax({
       url: 'code.php',
       dataType: 'text',
@@ -202,7 +200,6 @@ session_start();
             icon: "error"
           });
         }
-
       }
     });
   });
