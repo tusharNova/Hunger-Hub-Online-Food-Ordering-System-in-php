@@ -165,7 +165,7 @@ session_start();
     var c_name = $('#c_name').val();
     var txtAddress = $('#txtAddress').val();
    
-    console.log(data)
+    // console.log(data)
     var form_data = new FormData();
     form_data.append('cmd', "addRestaurant");
     form_data.append('txtResname', txtResname);
@@ -188,10 +188,10 @@ session_start();
       type: 'post',
       success: function(data) {
         console.log(data);
-        // alert(data);
+        alert(data);
         if (data == "1") {
           Swal.fire({
-            text: "Category Added",
+            text: "Restaurant Added",
             icon: "success"
           });
         } else {
