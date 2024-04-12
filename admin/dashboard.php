@@ -111,8 +111,5 @@ if (empty($_SESSION["adminname"])) {
       </div>
     </div>
   </div>
-
-
 </body>
-
 </html>
