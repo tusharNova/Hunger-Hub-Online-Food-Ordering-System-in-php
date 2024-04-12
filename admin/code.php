@@ -22,10 +22,18 @@ if ($cmd === "adminlogin") {
     } else {
         echo "Invalid Username or Password";
     }
+    
 }
 # for change password
 if ($cmd === "changeadminpass") {
     echo "ok";
+}
+
+#for login 
+if($cmd === "logout"){
+
+    echo "1";
+    session_destroy();
 }
 
 # for add Category 
@@ -133,4 +141,17 @@ if ($cmd === "AddMenus") {
     } catch (\Throwable $th) {
         throw $th;
     }
+}
+
+// index pages code
+// user login
+
+if($cmd === "UserLogin"){
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+    // echo "$username sdfasdfasfasd ";
+    $sql = "SELECT  `username`,  `password` FROM `user` WHERE username ='$username' AND password = '$password'";
+    $result = mysqli_query($conn , $sql);
+    $row = mysqli_num_rows($result);
+    echo $row
 }
