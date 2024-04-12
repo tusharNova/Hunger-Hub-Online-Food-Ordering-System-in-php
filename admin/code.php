@@ -153,5 +153,5 @@ if($cmd === "UserLogin"){
     $sql = "SELECT  `username`,  `password` FROM `user` WHERE username ='$username' AND password = '$password'";
     $result = mysqli_query($conn , $sql);
     $row = mysqli_num_rows($result);
-    echo $row
+    echo $row;
 }
