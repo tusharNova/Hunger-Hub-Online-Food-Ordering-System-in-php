@@ -59,7 +59,13 @@
                         password: password,
                     },
                     function(data, textStatus, jqXHR) {
-                        alert(data)
+                    //    alert(data)
+                        if(data == 1){
+                            alert("Login Done")
+                        }
+                        else{
+                            alert("fail to login")
+                        }
                     },
 
                 );
