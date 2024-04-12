@@ -238,6 +238,19 @@ if(empty( $_SESSION["adminname"]))
 </body>
 
 <script>
+  $("#btnlogout").click(function(){
+      // alert("OKKKK")
+    $.post("code.php", {
+      cmd : 'logout',
+    },
+      function (data) {
+        if(data == '1'){
+          location.reload();
+        }
+      },
+    );
+  });
+
   $("#btnsavepass").click(function () {
     var pass1 = $("#password1").val();
     var pass2 = $("#password2").val();
