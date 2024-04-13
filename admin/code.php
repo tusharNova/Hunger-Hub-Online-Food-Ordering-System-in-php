@@ -22,7 +22,6 @@ if ($cmd === "adminlogin") {
     } else {
         echo "Invalid Username or Password";
     }
-    
 }
 # for change password
 if ($cmd === "changeadminpass") {
@@ -30,7 +29,7 @@ if ($cmd === "changeadminpass") {
 }
 
 #for login 
-if($cmd === "logout"){
+if ($cmd === "logout") {
 
     echo "1";
     session_destroy();
@@ -146,12 +145,34 @@ if ($cmd === "AddMenus") {
 // index pages code
 // user login
 
-if($cmd === "UserLogin"){
+if ($cmd === "UserLogin") {
     $username = $_POST['username'];
     $password = $_POST['password'];
     // echo "$username sdfasdfasfasd ";
     $sql = "SELECT  `username`,  `password` FROM `user` WHERE username ='$username' AND password = '$password'";
-    $result = mysqli_query($conn , $sql);
+    $result = mysqli_query($conn, $sql);
     $row = mysqli_num_rows($result);
     echo $row;
+}
+
+// User Register
+if ($cmd === "UserRegister") {
+    $txtUserName = $_POST['txtUserName'];
+    $txtFirstName = $_POST['txtFirstName'];
+    $txtLastName = $_POST['txtLastName'];
+    $txtEmail = $_POST['txtEmail'];
+    $txtPhone = $_POST['txtPhone'];
+    $txtPassword = $_POST['txtPassword'];
+    $txtCpassword = $_POST['txtCpassword'];
+    $txtAddress = $_POST['txtAddress'];
+
+    $sql = "INSERT INTO `user`(`u_id`, `username`, `f_name`, `l_name`, `email`, `phone`, `password`, `addresss`, `status`, `date`) VALUES (null , '$txtUserName' , '$txtFirstName' ,'$txtLastName' , '$txtEmail' , '$txtPhone' , '$txtPassword' , '$txtAddress' ,'ok' , CURRENT_DATE);";
+
+    // echo $sql;
+    $result = mysqli_query($conn , $sql);
+    if ($result) {
+        echo "1";
+    } else {
+        echo "0";
+    }
 }
