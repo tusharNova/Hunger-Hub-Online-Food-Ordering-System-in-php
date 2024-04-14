@@ -144,7 +144,7 @@ session_start();
       </div>
       <div class="form-actions my-3">
         <input id="btnSubmit" type="button" name="submit" class="btn btn-primary" value="Save">
-        <a href="add_restaurant.php" class="btn btn-dark">Cancel</a>
+        <input id="btnClear" type="button" name="Clear" class="btn btn-dark" value="Clear">
       </div>
 
     </div>
@@ -152,57 +152,63 @@ session_start();
 </body>
 
 <script>
-  $("#btnSubmit").click(function() {
+  $(document).ready(function() {
+    $("#btnSubmit").click(function() {
 
-    var txtResname = $('#txtResname').val();
-    var txtBussinessEmail = $('#txtBussinessEmail').val();
-    var txtPhone = $('#txtPhone').val();
-    var txtWebUrl = $('#txtWebUrl').val();
-    var o_hr = $('#o_hr').val();
-    var c_hr = $('#c_hr').val();
-    var o_days = $('#o_days').val();
-    var file_data = $('#file').prop('files')[0];
-    var c_name = $('#c_name').val();
-    var txtAddress = $('#txtAddress').val();
-   
-    // console.log(data)
-    var form_data = new FormData();
-    form_data.append('cmd', "addRestaurant");
-    form_data.append('txtResname', txtResname);
-    form_data.append('txtBussinessEmail', txtBussinessEmail);
-    form_data.append('txtPhone', txtPhone);
-    form_data.append('txtWebUrl', txtWebUrl);
-    form_data.append('o_hr', o_hr);
-    form_data.append('o_days', o_days);
-    form_data.append('file', file_data);
-    form_data.append('c_hr', c_hr);
-    form_data.append('c_name', c_name);
-    form_data.append('txtAddress', txtAddress);
-    $.ajax({
-      url: 'code.php',
-      dataType: 'text',
-      cache: false,
-      contentType: false,
-      processData: false,
-      data: form_data,
-      type: 'post',
-      success: function(data) {
-        console.log(data);
-        alert(data);
-        if (data == "1") {
-          Swal.fire({
-            text: "Restaurant Added",
-            icon: "success"
-          });
-        } else {
-          Swal.fire({
-            text: "Failed to add",
-            icon: "error"
-          });
+      var txtResname = $('#txtResname').val();
+      var txtBussinessEmail = $('#txtBussinessEmail').val();
+      var txtPhone = $('#txtPhone').val();
+      var txtWebUrl = $('#txtWebUrl').val();
+      var o_hr = $('#o_hr').val();
+      var c_hr = $('#c_hr').val();
+      var o_days = $('#o_days').val();
+      var file_data = $('#file').prop('files')[0];
+      var c_name = $('#c_name').val();
+      var txtAddress = $('#txtAddress').val();
+
+      // console.log(data)
+      var form_data = new FormData();
+      form_data.append('cmd', "addRestaurant");
+      form_data.append('txtResname', txtResname);
+      form_data.append('txtBussinessEmail', txtBussinessEmail);
+      form_data.append('txtPhone', txtPhone);
+      form_data.append('txtWebUrl', txtWebUrl);
+      form_data.append('o_hr', o_hr);
+      form_data.append('o_days', o_days);
+      form_data.append('file', file_data);
+      form_data.append('c_hr', c_hr);
+      form_data.append('c_name', c_name);
+      form_data.append('txtAddress', txtAddress);
+      $.ajax({
+        url: 'code.php',
+        dataType: 'text',
+        cache: false,
+        contentType: false,
+        processData: false,
+        data: form_data,
+        type: 'post',
+        success: function(data) {
+          console.log(data);
+          // alert(data);
+          if (data == "1") {
+            Swal.fire({
+              text: "Restaurant Added",
+              icon: "success"
+            });
+          } else {
+            Swal.fire({
+              text: "Failed to add",
+              icon: "error"
+            });
+          }
         }
-      }
+      });
     });
-  });
+
+    $("#btnClear").click(function() {
+      $("input[type=text],input[type=password],input[type=email],input[type=email],input[type=number],input[type=file],textarea").val("");
+    });
+  })
 </script>
 
 </html>
