@@ -61,53 +61,58 @@
       </div>
       <div class="form-actions my-3">
         <input id="btnSubmit" type="button" name="submit" class="btn btn-primary" value="Save">
-        <a href="add_restaurant.php" class="btn btn-dark">Cancel</a>
+        <!-- <a href="" class="btn btn-dark">Cancel</a> -->
+        <input id="btnClear" type="button" name="Clear" class="btn btn-dark" value="Clear">
       </div>
 
     </div>
   </div>
 </body>
 <script>
-  $("#btnSubmit").click(function() {
-    var txtDishName = $('#txtDishName').val();
-    var txtDescription = $('#txtDescription').val();
-    var txtPrice = $('#txtPrice').val();
-    var file_data = $('#file').prop('files')[0];
-    var txtres_name = $('#txtres_name').val();
-    var form_data = new FormData();
-    form_data.append('cmd', "AddMenus");
-   
-     form_data.append('txtDishName', txtDishName);
-     form_data.append('txtDescription', txtDescription);
-     form_data.append('txtPrice', txtPrice);
-     form_data.append('file', file_data);
-     form_data.append('txtres_name', txtres_name);
-    
-    $.ajax({
-      url: 'code.php',
-      dataType: 'text',
-      cache: false,
-      contentType: false,
-      processData: false,
-      data: form_data,
-      type: 'post',
-      success: function(data) {
-        console.log(data);
-        alert(data);
-        if (data == "1") {
-          Swal.fire({
-            text: "Menu Added",
-            icon: "success"
-          });
-        } else {
-          Swal.fire({
-            text: "Failed to add",
-            icon: "error"
-          });
-        }
+  $(document).ready(function() {
+    $("#btnSubmit").click(function() {
+      var txtDishName = $('#txtDishName').val();
+      var txtDescription = $('#txtDescription').val();
+      var txtPrice = $('#txtPrice').val();
+      var file_data = $('#file').prop('files')[0];
+      var txtres_name = $('#txtres_name').val();
+      var form_data = new FormData();
+      form_data.append('cmd', "AddMenus");
+      form_data.append('txtDishName', txtDishName);
+      form_data.append('txtDescription', txtDescription);
+      form_data.append('txtPrice', txtPrice);
+      form_data.append('file', file_data);
+      form_data.append('txtres_name', txtres_name);
+      $.ajax({
+        url: 'code.php',
+        dataType: 'text',
+        cache: false,
+        contentType: false,
+        processData: false,
+        data: form_data,
+        type: 'post',
+        success: function(data) {
 
-      }
+          if (data == "1") {
+            Swal.fire({
+              text: "Menu Added",
+              icon: "success"
+            });
+          } else {
+            Swal.fire({
+              text: "Failed to add",
+              icon: "error"
+            });
+          }
+        }
+      });
     });
+
+    $("#btnClear").click(function() {
+      $("input[type=text],input[type=password],input[type=email],input[type=email],input[type=number],input[type=file],textarea").val("");
+    });
+
+
   });
 </script>
 
