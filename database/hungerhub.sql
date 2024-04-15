@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 08, 2024 at 10:02 AM
+-- Generation Time: Apr 15, 2024 at 06:45 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -31,7 +31,7 @@ CREATE TABLE `admin` (
   `adm_id` int(11) NOT NULL,
   `username` text DEFAULT NULL,
   `password` text DEFAULT NULL,
-  `date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+  `date` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -39,8 +39,8 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`adm_id`, `username`, `password`, `date`) VALUES
-(1, 'tushar', '9022', '2024-02-17 18:30:00'),
-(2, 'bharti', '9022', '2024-03-03 20:20:58');
+(1, 'tushar', '9022', NULL),
+(2, 'bharti', '9022', NULL);
 
 -- --------------------------------------------------------
 
@@ -62,7 +62,8 @@ CREATE TABLE `dishes` (
 --
 
 INSERT INTO `dishes` (`d_id`, `r_id`, `title`, `slogan`, `price`, `img`) VALUES
-(3, 2, 'Chole bhature', 'good', '150', 'P1.png');
+(1, 1, 'VadaPav', 'best', '30', 'M2.jpg'),
+(2, 2, 'Dosa', 'good', '60', 'S1.png');
 
 -- --------------------------------------------------------
 
@@ -82,7 +83,7 @@ CREATE TABLE `restaurant` (
   `o_days` text NOT NULL,
   `address` text NOT NULL,
   `image` text NOT NULL,
-  `date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+  `date` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -90,8 +91,8 @@ CREATE TABLE `restaurant` (
 --
 
 INSERT INTO `restaurant` (`r_id`, `c_id`, `title`, `email`, `phone`, `url`, `o_hr`, `c_hr`, `o_days`, `address`, `image`, `date`) VALUES
-(1, 1, 'AAmantran ', '0', '9632587410', '0', '10', '10', 'Mon-Fri', ' nagpur - 441202', 'mr2.png', '2024-04-06 18:30:00'),
-(2, 5, 'Oye tere', 'fefayam700@sentrau.com', '9658741230', 'https://www.youtube.com/watch?v=dVg0zFhSDhU', '12pm ', ' 10pm', 'Mon-Sat', ' new RCB road , punjab', 'PR1.png', '2024-04-06 18:30:00');
+(1, 1, 'Aamantran ', 'Aamantran02@gmail.com', '8521479630', 'www.AamantranFood.com', '7am ', ' 10pm', 'Mon-Fri', ' Shivaji nagar , near IT park  nagpur', 'maha.png', '2024-04-14'),
+(2, 2, 'Swamy', 'SwamyFoods@gmail.com', '8520147963', 'www.SwamyFoods.com', '10am ', ' 10pm', 'Mon-Sat', ' pt- 212 Near New main-road ,Nagpur - 440256 ', 'south.jpg', '2024-04-14');
 
 -- --------------------------------------------------------
 
@@ -102,7 +103,7 @@ INSERT INTO `restaurant` (`r_id`, `c_id`, `title`, `email`, `phone`, `url`, `o_h
 CREATE TABLE `res_category` (
   `c_id` int(11) NOT NULL,
   `c_name` text NOT NULL,
-  `date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+  `date` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -110,10 +111,10 @@ CREATE TABLE `res_category` (
 --
 
 INSERT INTO `res_category` (`c_id`, `c_name`, `date`) VALUES
-(2, 'North indian', '2024-03-07 13:38:35'),
-(3, 'South indian', '2024-03-07 13:38:50'),
-(4, 'Gujarati', '2024-03-07 13:39:03'),
-(5, 'Punjabi', '2024-03-07 13:39:28');
+(1, 'Maharashtrian', '2024-04-14'),
+(2, 'South-Indian', '2024-04-14'),
+(3, 'Gujarati', '2024-04-14'),
+(4, 'North-Indian', '2024-04-14');
 
 -- --------------------------------------------------------
 
@@ -131,7 +132,7 @@ CREATE TABLE `user` (
   `password` text NOT NULL,
   `addresss` text NOT NULL,
   `status` text NOT NULL,
-  `date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+  `date` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -139,7 +140,18 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`u_id`, `username`, `f_name`, `l_name`, `email`, `phone`, `password`, `addresss`, `status`, `date`) VALUES
-(1, 'tushar	', 'tushar', 'mankar', 'tushar@gmail.com', '9022126544', '9022', 'plot--11111', 'ok', '2024-03-03 20:40:32');
+(1, 'tushar', 'tushar', 'mankar', 'tushar@gmail.com', '9022126544', '9022', 'plot--11111', 'ok', NULL),
+(2, '[value-2]', '[value-3]', '[value-4]', '[value-5]', '[value-6]', '[value-7]', '[value-8]', '[value-9]', NULL),
+(3, 'h', 'h', 'h', 'h', 'h', 'h', 'hh', 'ok', NULL),
+(4, 'h', 'h', 'h', 'h', 'h', 'h', 'hh', 'ok', NULL),
+(5, 'h', 'h', 'h', 'h', 'h', 'h', 'hh', 'ok', '2024-04-13'),
+(6, 'yash', 'ryash', 'gedam', 'yash@gamilcom', '985012347', '1234', 'pt-15', 'ok', '2024-04-13'),
+(7, 'Neha', 'neha', 'kawade', 'neha@gamil.com', '9630125874', '1234', 'pt-22 manewada , nagpur', 'ok', '2024-04-13'),
+(8, 'Neha', 'neha', 'kawade', 'neha@gamil.com', '9630125874', '1234', 'pt-22 manewada , nagpur', 'ok', '2024-04-13'),
+(9, 'janhvi', 'janhvi', 'shende', 'viddhi@gmail.com', '8541207369', '1234', 'pt-12 manewada , nagpur', 'ok', '2024-04-13'),
+(10, 'janhvi', 'janhvi', 'shende', 'viddhi@gmail.com', '8541207369', '1234', 'pt-12 manewada , nagpur', 'ok', '2024-04-13'),
+(11, '', '', '', '', '', '', '', 'ok', '2024-04-13'),
+(12, '', '', '', '', '', '', '', 'ok', '2024-04-13');
 
 -- --------------------------------------------------------
 
@@ -211,7 +223,7 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `dishes`
 --
 ALTER TABLE `dishes`
-  MODIFY `d_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `d_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `restaurant`
@@ -223,13 +235,13 @@ ALTER TABLE `restaurant`
 -- AUTO_INCREMENT for table `res_category`
 --
 ALTER TABLE `res_category`
-  MODIFY `c_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `c_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `u_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `u_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `user_orders`

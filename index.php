@@ -14,11 +14,11 @@ include_once('connection/connect.php')
     <link rel="stylesheet" href="css/style.css">
 </head>
 
-<body >
+<body>
 
-<?php
+    <?php
     include_once("navbar.php")
-?>
+    ?>
     <section class="hero bg-image" style="background-image: url('images/pimg.jpg');">
         <div class="hero-inner">
             <div class="container text-center hero-text font-white">
@@ -76,7 +76,7 @@ include_once('connection/connect.php')
                     echo '  <div class="col-xs-12 col-sm-6 col-md-4 food-item">
                                             <div class="food-item-wrap">
                                                 <div class="figure-wrap bg-image">
-                                                <a class=""> <img src="admin/images/menus' . $row['img'] . '" alt="Menus logo"> </a>
+                                                <a class=""> <img src="admin/images/menus/' . $row['img'] . '" alt="Menus logo" style="background: url(admin/images/menus/' . $row['img'] . ';) center center / cover no-repeat;"> </a>
                                                 </div>
                                                 <div class="content">
                                                     <h5><a href="dishes.php?res_id=' . $row['r_id'] . '">' . $row['title'] . '</a></h5>
@@ -154,45 +154,45 @@ include_once('connection/connect.php')
     </section>
 
     <section class="featured-restaurants">
-         <div class="container">
-             <div class="row">
-                 <div class="col-sm-4">
-                     <div class="title-block pull-left">
-                         <h4>Featured Restaurants</h4>
-                     </div>
-                 </div>
-                 <div class="col-sm-8">
-                     <div class="restaurants-filter pull-right">
-                         <nav class="primary pull-left">
-                             <ul>
-                                 <li><a href="#" class="selected" data-filter="*">all</a> </li>
-                                 <?php
-                                    $res = mysqli_query($conn, "select * from res_category");
-                                    while ($row = mysqli_fetch_array($res)) {
-                                        echo '<li><a href="#" data-filter=".' . $row['c_name'] . '"> ' . $row['c_name'] . '</a> </li>';
-                                    }
-                                    ?>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-4">
+                    <div class="title-block pull-left">
+                        <h4>Featured Restaurants</h4>
+                    </div>
+                </div>
+                <div class="col-sm-8">
+                    <div class="restaurants-filter pull-right">
+                        <nav class="primary pull-left">
+                            <ul>
+                                <li><a href="#" class="selected" data-filter="*">all</a> </li>
+                                <?php
+                                $res = mysqli_query($conn, "select * from res_category");
+                                while ($row = mysqli_fetch_array($res)) {
+                                    echo '<li><a href="#" data-filter=".' . $row['c_name'] . '"> ' . $row['c_name'] . '</a> </li>';
+                                }
+                                ?>
 
-                             </ul>
-                         </nav>
-                     </div>
+                            </ul>
+                        </nav>
+                    </div>
 
-                 </div>
-             </div>
-
-
-             <div class="row">
-                 <div class="restaurant-listing">
+                </div>
+            </div>
 
 
-                     <?php
-                        $ress = mysqli_query($conn, "select * from restaurant");
-                        while ($rows = mysqli_fetch_array($ress)) {
+            <div class="row">
+                <div class="restaurant-listing">
 
-                            $query = mysqli_query($conn, "select * from res_category where c_id='" . $rows['c_id'] . "' ");
-                            $rowss = mysqli_fetch_array($query);
 
-                            echo ' <div class="col-xs-12 col-sm-12 col-md-6 single-restaurant all ' . $rows['c_name'] . '">
+                    <?php
+                    $ress = mysqli_query($conn, "select * from restaurant");
+                    while ($rows = mysqli_fetch_array($ress)) {
+
+                        $query = mysqli_query($conn, "select * from res_category where c_id='" . $rows['c_id'] . "' ");
+                        $rowss = mysqli_fetch_array($query);
+
+                        echo ' <div class="col-xs-12 col-sm-12 col-md-6 single-restaurant all ' . $rowss['c_name'] . '">
 														<div class="restaurant-wrap">
 															<div class="row">
 																<div class="col-xs-12 col-sm-3 col-md-12 col-lg-3 text-xs-center">
@@ -208,21 +208,12 @@ include_once('connection/connect.php')
 														</div>
 												
 													</div>';
-                        }
-
-
-                        ?>
-
-
-
-
-
-                 </div>
-             </div>
-
-
-         </div>
-     </section>
+                    }
+                    ?>
+                </div>
+            </div>
+        </div>
+    </section>
 
 </body>
 
