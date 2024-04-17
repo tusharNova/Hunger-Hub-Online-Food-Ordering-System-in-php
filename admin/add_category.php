@@ -45,7 +45,7 @@
         <table id="myTable" class="table table-bordered table-hover table-striped">
           <thead class="thead-dark">
             <tr>
-              <th>ID</th>
+              <th>Sr NO.</th>
               <th>Category Name</th>
               <th>Date</th>
               <th>Action</th>
@@ -74,9 +74,9 @@
         </table>
       </div>
       <!-- Button to Open the Modal -->
-      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editCatModel">
+      <!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editCatModel">
         Open modal
-      </button>
+      </button> -->
 
       <!-- The Modal -->
       <div class="modal fade" id="editCatModel">
@@ -127,7 +127,7 @@
           });
         }
       });
-      location.reload();
+      // location.reload();
     }
   }
 
