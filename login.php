@@ -31,7 +31,7 @@
                     <div class="text-center mt-3">
                         <button class="btn btn-primary" id="btnlogin">Login</button>
                         <button class="btn btn-dark" id="btnclear">Clear</button>
-                        <a href="#" class="nav-link my-2 text-primary">Dont ?</a>
+                        <a href="registration.php" class="nav-link my-2 text-primary">Dont have account? Registers</a>
 
                     </div>
                 </div>
