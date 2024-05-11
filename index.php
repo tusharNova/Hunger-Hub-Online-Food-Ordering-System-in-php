@@ -196,11 +196,11 @@ include_once('connection/connect.php')
 														<div class="restaurant-wrap">
 															<div class="row">
 																<div class="col-xs-12 col-sm-3 col-md-12 col-lg-3 text-xs-center">
-																	<a class="restaurant-logo" href="dishes.php?res_id=' . $rows['r_id'] . '" > <img src="admin/imgRes/' . $rows['image'] . '" alt="Restaurant logo"> </a>
+																	<a class="restaurant-logo" href="" > <img src="admin/imgRes/' . $rows['image'] . '" alt="Restaurant logo"> </a>
 																</div>
 													
 																<div class="col-xs-12 col-sm-9 col-md-12 col-lg-9">
-																	<h5><a href="dishes.php?res_id=' . $rows['r_id'] . '" >' . $rows['title'] . '</a></h5> <span>' . $rows['address'] . '</span>
+																	<h5><a href="" >' . $rows['title'] . '</a></h5> <span>' . $rows['address'] . '</span>
 																</div>
 													
 															</div>
