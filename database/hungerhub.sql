@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 15, 2024 at 06:45 PM
+-- Generation Time: May 12, 2024 at 05:30 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -113,8 +113,7 @@ CREATE TABLE `res_category` (
 INSERT INTO `res_category` (`c_id`, `c_name`, `date`) VALUES
 (1, 'Maharashtrian', '2024-04-14'),
 (2, 'South-Indian', '2024-04-14'),
-(3, 'Gujarati', '2024-04-14'),
-(4, 'North-Indian', '2024-04-14');
+(6, 'Gujarati', '2024-04-17');
 
 -- --------------------------------------------------------
 
@@ -147,11 +146,8 @@ INSERT INTO `user` (`u_id`, `username`, `f_name`, `l_name`, `email`, `phone`, `p
 (5, 'h', 'h', 'h', 'h', 'h', 'h', 'hh', 'ok', '2024-04-13'),
 (6, 'yash', 'ryash', 'gedam', 'yash@gamilcom', '985012347', '1234', 'pt-15', 'ok', '2024-04-13'),
 (7, 'Neha', 'neha', 'kawade', 'neha@gamil.com', '9630125874', '1234', 'pt-22 manewada , nagpur', 'ok', '2024-04-13'),
-(8, 'Neha', 'neha', 'kawade', 'neha@gamil.com', '9630125874', '1234', 'pt-22 manewada , nagpur', 'ok', '2024-04-13'),
-(9, 'janhvi', 'janhvi', 'shende', 'viddhi@gmail.com', '8541207369', '1234', 'pt-12 manewada , nagpur', 'ok', '2024-04-13'),
-(10, 'janhvi', 'janhvi', 'shende', 'viddhi@gmail.com', '8541207369', '1234', 'pt-12 manewada , nagpur', 'ok', '2024-04-13'),
-(11, '', '', '', '', '', '', '', 'ok', '2024-04-13'),
-(12, '', '', '', '', '', '', '', 'ok', '2024-04-13');
+(14, 'Tushar', 'tushar', 'Mankar', 'tusharmankar02@gmail.com', '745219630', '1234', 'pt-15 , kharbi road , Nagpur- 440212', 'ok', '2024-05-12'),
+(15, 'bharti', 'bharti', 'patle', 'bharti@gmail.com', '9874563210', '1234', 'pt-5', 'ok', '2024-05-12');
 
 -- --------------------------------------------------------
 
@@ -235,13 +231,13 @@ ALTER TABLE `restaurant`
 -- AUTO_INCREMENT for table `res_category`
 --
 ALTER TABLE `res_category`
-  MODIFY `c_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `c_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `u_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `u_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `user_orders`
