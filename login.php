@@ -18,6 +18,9 @@
     ?>
     <div class="container mt-5 pt-5">
         <divc class="row">
+            <div class="text-center h2 text-primary">
+                User Login
+            </div>
             <div class="col-12 col-sm-8 col-md-6 m-auto">
                 <div class="card border-0 shadow">
                     <div class="card-body">
@@ -31,7 +34,7 @@
                     <div class="text-center mt-3">
                         <button class="btn btn-primary" id="btnlogin">Login</button>
                         <button class="btn btn-dark" id="btnclear">Clear</button>
-                        <a href="registration.php" class="nav-link my-2 text-primary">Dont have account? Registers</a>
+                        <!-- <a href="registration.php" class="nav-link my-2 text-primary">Dont have account? Registers</a> -->
 
                     </div>
                 </div>
@@ -59,7 +62,7 @@
                         password: password,
                     },
                     function(data, textStatus, jqXHR) {
-                    //    alert(data)
+                       alert(data)
                         if(data == 1){
                             alert("Login Done")
                         }

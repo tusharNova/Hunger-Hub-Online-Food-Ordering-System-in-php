@@ -27,6 +27,9 @@
     ?>
     <div class="container mt-5 pt-5">
         <div class="row shadow border-0">
+        <div class="text-center h2 text-primary">
+                User Registrations
+            </div>
             <div class="col-md-12">
                 <div class="widget">
                     <div class="widget-body">
