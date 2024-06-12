@@ -54,7 +54,7 @@
                 // if (username != "" || password != "") {
                 //     alert("enter values")
                 // } else {
-;
+
                 // }
                 $.post("admin/code.php", {
                         cmd: "UserLogin",
@@ -62,7 +62,7 @@
                         password: password,
                     },
                     function(data, textStatus, jqXHR) {
-                       alert(data)
+                    //    alert(data)
                         if(data == 1){
                             alert("Login Done")
                         }
