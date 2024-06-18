@@ -126,7 +126,7 @@ session_start();
 
                         <div class="page-wrapper">
                             <div style="padding-top: 10px;">
-                                 <marquee onMouseOver="this.stop()" onMouseOut="this.start()"> This website is created by Tushar M. & Bharti P.</marquee>
+                                 <marquee onMouseOver="this.stop()" onMouseOut="this.start()"> This website is created by Tushar M</marquee>
                             </div>
 
             

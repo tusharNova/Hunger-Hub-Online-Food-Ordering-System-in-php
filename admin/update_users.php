@@ -179,7 +179,7 @@ if(isset($_POST['submit'] ))
 
                         <div class="page-wrapper" style="height:1200px;">
                             <div style="padding-top: 10px;">
-                                 <marquee onMouseOver="this.stop()" onMouseOut="this.start()"> This website is created by Tushar M. & Bharti P.</marquee>
+                                 <marquee onMouseOver="this.stop()" onMouseOut="this.start()"> This website is created by Tushar M</marquee>
                             </div>
 
                             <div class="row page-titles">
